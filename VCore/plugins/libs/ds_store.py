@@ -3,18 +3,21 @@
 
 # LiJiejie    my[at]lijiejie.com    http://www.lijiejie.com
 
+
+"""func_ds_store
+
+return func_ds_store(url)
+"""
+
 import sys
-import urllib2
-import cStringIO
-import urlparse
+import urllib.request
+import io
+import urllib.parse
 import os
-import Queue
+import queue as Queue
 import threading
 
-try:
-    from .store import DSStore
-except:
-    from store import DSStore
+from ds_store import DSStore
 
 
 class Scanner(object):
@@ -47,13 +50,14 @@ class Scanner(object):
                 base_url = url.rstrip('.DS_Store')
                 if not url.lower().startswith('http'):
                     url = 'http://%s' % url
-                schema, netloc, path, _, _, _ = urlparse.urlparse(url, 'http')
+                schema, netloc, path, _, _, _ = urllib.parse.urlparse(
+                    url, 'http')
                 try:
-                    response = urllib2.urlopen(url)
+                    response = urllib.request .urlopen(url)
                 except Exception as e:
                     if str(e) == 'HTTP Error 403: Forbidden':
                         self.lock.acquire()
-                        print('\033[1;31;40m[Folder Found] \033[1;33;40m%s\033[0m' % url)
+                        # print('\033[1;31;40m[Folder Found] \033[1;33;40m%s\033[0m' % url)
                         self.result.append('[Folder Found] %s' % url)
                         self.lock.release()
                     continue
@@ -66,15 +70,14 @@ class Scanner(object):
                         os.makedirs(folder_name)
                     with open(netloc.replace(':', '_') + path, 'wb') as outFile:
                         self.lock.acquire()
-                        print('\033[1;32;40m[+] \033[1;34;40m%s\033[0m' % url)
+                        # print('\033[1;32;40m[+] \033[1;34;40m%s\033[0m' % url)
                         self.result.append('[+] %s' % url)
                         self.lock.release()
                         outFile.write(data)
                     if url.endswith('.DS_Store'):
-                        ds_store_file = cStringIO.StringIO()
+                        ds_store_file = io.StringIO()
                         ds_store_file.write(data)
                         d = DSStore.open(ds_store_file)
-
                         dirs_files = set()
                         for x in d.traverse():
                             dirs_files.add(x.filename)
@@ -83,8 +86,8 @@ class Scanner(object):
                                 self.queue.put(base_url + name)
                                 self.queue.put(base_url + name + '/.DS_Store')
                         d.close()
-                        print("\033[1;36;40m[DS_Store] \033[1;35;40m%s\033[0m" %
-                              ','.join(dirs_files))
+                        # print("\033[1;36;40m[DS_Store] \033[1;35;40m%s\033[0m" %
+                        #       ','.join(dirs_files))
                         self.result.append('[DS_Store] %s' % url)
             except:
                 pass
@@ -98,6 +101,15 @@ class Scanner(object):
             all_threads.append(t)
             t.start()
 
+
+def func_ds_store(url):
+    if ".DS_Store" not in url:
+        url = url + "/.DS_Store"
+    s = Scanner(url)
+    s.scan()
+    while s.working_thread > 0:
+        continue
+    return s.result
 
 if __name__ == '__main__':
     if len(sys.argv) == 1:

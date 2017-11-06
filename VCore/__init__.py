@@ -6,11 +6,11 @@ import os
 from flask import Flask, render_template, request, redirect, jsonify, json as json_mod, url_for, Response
 # from flask_session import Session
 
-from VCore.models import db
-from VCore.utils import init_utils
-from VCore.views import views
+from .models import db
+from .utils import init_utils
+from .views import views
 
-import plugins
+from . import plugins
 
 
 def create_app(config='VCore.config.devConfig'):
