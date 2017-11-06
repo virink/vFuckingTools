@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from Core import create_app
+from VCore import create_app
 
 app = create_app()
 
