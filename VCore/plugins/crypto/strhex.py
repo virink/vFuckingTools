@@ -7,6 +7,7 @@ Author : Virink
 Type : crypto
 Detail : 16进制编码/解码
 Param : @s
+func : encode, decode
 '''
 import binascii
 

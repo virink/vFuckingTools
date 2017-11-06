@@ -7,6 +7,7 @@ Author : Virink
 Type : crypto
 Detail : 埃特巴什码解码
 Param : @s
+func :  decode
 '''
 
 TABLE = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',

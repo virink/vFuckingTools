@@ -7,6 +7,7 @@ Author : Virink
 Type : crypto
 Detail : 摩斯电码
 Param : @s
+func : encode, decode
 '''
 
 MORSE_TABLE = {

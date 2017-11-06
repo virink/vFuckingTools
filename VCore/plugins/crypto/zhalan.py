@@ -7,6 +7,7 @@ Author : Virink
 Type : crypto
 Detail : 栅栏密码
 Param : @s
+func : decode
 '''
 
 

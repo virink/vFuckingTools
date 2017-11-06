@@ -7,6 +7,7 @@ Author : Virink
 Type : crypto
 Detail : 凯撒编码
 Param : @s, @offset
+func : encode, decode
 '''
 
 TABLE_AZ_U = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',

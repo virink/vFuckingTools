@@ -7,6 +7,7 @@ Author : Virink
 Type : crypto
 Detail : 维吉利亚密码编码/解码
 Param : @s, @key
+func : encode, decode
 '''
 
 

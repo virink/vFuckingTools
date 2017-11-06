@@ -7,6 +7,7 @@ Author : Virink
 Type : crypto
 Detail : 美国信息交换标准代码编码/解码
 Param : @s
+func : encode, decode
 '''
 
 

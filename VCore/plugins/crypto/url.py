@@ -7,11 +7,9 @@ Author : Virink
 Type : crypto
 Detail : URL编码
 Param : @s, @plus, @charset=utf-8
+func : encode, decode
 '''
 
-# from urllib import parse
-# for i in dir(parse):
-#     print(i)
 from urllib.parse import quote, unquote, quote_plus, unquote_plus
 
 

@@ -7,6 +7,7 @@ Author : Virink
 Type : crypto
 Detail : 手机键盘遍码
 Param : @s, @sep
+func : encode, decode
 '''
 
 TABLE = {

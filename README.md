@@ -10,7 +10,17 @@ CTFTools
 
 ## Crypto
 
+    - ascii
     - base64
+    - mokbp
+    - peigen
+    - url
+    - zhalan.py
+    - atbash
+    - caesar
+    - morse
+    - strhex
+    - vigenere
     - ...
 
 ## Misc

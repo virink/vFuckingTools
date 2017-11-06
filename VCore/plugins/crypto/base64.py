@@ -7,6 +7,7 @@ Author : Virink
 Type : crypto
 Detail : Base64/32/16编码/解密
 Param : @s, @bit
+func : encode, decode
 '''
 
 import base64

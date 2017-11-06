@@ -7,6 +7,7 @@ Author : Virink
 Type : crypto
 Detail : 培根密码编码/解码
 Param : @s
+func : encode, decode
 '''
 
 TABLE_PAIGEN = {
