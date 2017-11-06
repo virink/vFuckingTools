@@ -1,0 +1,32 @@
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button aria-controls="navbar" aria-expanded="false" class="navbar-toggle collapse" data-toggle="collapse" type="button">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="{{ url_for('views.views_index') }}">
+                <span class="nav navbar-brand navbar-nav">{{ website.title }}</span>
+            </a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="{{ url_for('views.views_index') }}" title="Home">Home</a></li>
+                <li>
+                    <a href="{{ url_for('tests.tests_webshells') }}" title="WebShell">WebShell</a>
+                </li>
+                <li><a href="{{ url_for('views.views_about') }}" title="About">About</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if authed() %}
+                <li><a href="{{ url_for('users.users_index') }}">{{ session.get('username') }}</a></li>
+                <li><a href="{{ url_for('auths.auths_logout') }}">Logout</a></li>
+                {% else %}
+                <li><a href="{{ url_for('auths.auths_login') }}">Login</a></li>
+                <li><a href="{{ url_for('auths.auths_register') }}">Register</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

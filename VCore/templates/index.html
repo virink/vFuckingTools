@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}Index{% endblock %}
+
+{% block modal %}
+    {{ super() }}
+ {% endblock %}
+{% block content %}
+<div class="row-fluid text-center">
+    <div class="col-md-4 index-box">
+        <div class="list-group">
+            <div class="list-group-item list-group-item-info">
+                <span class="badge"></span>
+                <span class="badge"></span>
+                <h4 class="list-group-item-heading">title</h4>
+            </div>
+            <p class="list-group-item index-box-content">
+                content
+            </p>
+            <p class="list-group-item">
+                <a class="btn btn-default" data-toggle="modal" data-target="#myModal" href="#url" role="button">进入详览</a>
+            </p>
+        </div>
+    </div>
+    <div class="col-md-4 index-box">
+        <div class="list-group">
+            <div class="list-group-item list-group-item-info">
+                <span class="badge"></span>
+                <span class="badge"></span>
+                <h4 class="list-group-item-heading">WebShell</h4>
+            </div>
+            <p class="list-group-item index-box-content">
+                PHP :
+                <br/>
+                JSP :
+                <br/>
+                ASP : 
+                <br/>
+                ASPX : 
+            </p>
+            <p class="list-group-item">
+                <a class="btn btn-default" href="/webshells" role="button">进入详览</a>
+            </p>
+        </div>
+    </div>
+    <div class="col-md-4 index-box">
+        <div class="list-group">
+            <div class="list-group-item list-group-item-info">
+                <span class="badge"></span>
+                <span class="badge"></span>
+                <h4 class="list-group-item-heading">Crypto</h4>
+            </div>
+            <p class="list-group-item index-box-content">
+                content
+            </p>
+            <p class="list-group-item">
+                <a class="btn btn-default" data-toggle="modal" data-target="#myModal" href="#url" role="button">进入详览</a>
+            </p>
+        </div>
+    </div>
+    <div class="col-md-4 index-box">
+        <div class="list-group">
+            <div class="list-group-item list-group-item-info">
+                <span class="badge"></span>
+                <span class="badge"></span>
+                <h4 class="list-group-item-heading">Others</h4>
+            </div>
+            <p class="list-group-item index-box-content">
+                content
+            </p>
+            <p class="list-group-item">
+                <a class="btn btn-default" data-toggle="modal" data-target="#myModal" href="#url" role="button">进入详览</a>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}Crypto{% endblock %}
+
+{% block modal %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+    <div class="row-fluid text-center">
+        <div class="list-group">
+            <!-- Title -->
+            <div id="" class="list-group-item disabled">Title</div>
+            <!-- Cryptos -->
+            <div id="" class="list-group-item">
+            {% for crypto in cryptos %}
+                <button id="{{ crypto }}" class="btn btn-default btn-cryptos" role="button">{{ crypto }}</button>
+            {% endfor %}
+            </div>
+            <!-- Code Editor -->
+            <div id="" class="list-group-item">
+                <textarea name="code" id="code" cols="30" rows="10"></textarea>
+            </div>
+            <!-- Button -->
+            <div class="list-group-item">
+                <button id="encode" class="btn btn-default" role="button">Encode</button>
+                <button id="decode" class="btn btn-default" role="button">Decode</button>
+            </div>
+            <!-- Code Result -->
+            <div id="" class="list-group-item">
+                <textarea name="result" id="result" cols="30" rows="10"></textarea>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+    <script>
+        var crypto;
+        function ajax_action(action,data) {
+            // TODO ajax
+            $.ajax();
+        }
+        $(document).ready(function(){
+            $(".btn-cryptos").bind("click", function () {
+                // TODO clear class active
+                $(this).toggleClass("active");
+                crypto = $(this).text();
+            });
+            $("#encode").bind("click", function () {
+                ajax_action("encode", $(this).text());
+            });
+            $("#decode").bind("click", function () {
+                ajax_action("decode", $(this).text());
+            });
+        });
+    </script>
+{% endblock %}

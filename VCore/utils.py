@@ -10,6 +10,7 @@ import os
 def init_utils(app):
     app.jinja_env.filters['long2ip'] = long2ip
     app.jinja_env.globals.update(authed=authed)
+    app.jinja_env.globals.update(website=app.config['SITESEO'])
 
     @app.context_processor
     def inject_user():

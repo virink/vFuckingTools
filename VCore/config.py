@@ -25,6 +25,11 @@ class Config(object):
     SESSION_COOKIE_HTTPONLY = True
     PERMANENT_SESSION_LIFETIME = 604800  # 7 days in seconds
     TEMPLATES_AUTO_RELOAD = True
+    SITESEO = {
+        'title': 'CTFTools',
+        'description': 'The Tools for CTF&AWD by GinkgoTeam',
+        'keyword': 'Security,CTF,AWD'
+    }
 
 
 class devConfig(Config):

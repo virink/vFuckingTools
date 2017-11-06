@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="/static/img/favicon.ico">
+    <meta name="description" content="CTFTools - GinkgoTeam">
+    <meta name="author" content="Virink">
+    <title>{% block title %}{% endblock title %} - {{ website.title }}</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+     {% block style %}{% endblock style %}
+</head>
+<body>
+    <!-- NavBar -->
+    {% include '_navbar.html' %}
+    <!-- Modal -->
+    {% block modal %}
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        友情提醒一下
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    非常抱歉，亲！～ 此工具暂未对外开放，请耐心等待，也可留言反馈，多谢您的支持！
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+    <!-- Content -->
+    <div class="container container-fluid">
+        {% block content %} {% endblock content %}
+    </div>
+    <!-- Footer -->
+    <footer class="navbar-fixed-bottom footer" align="center">
+        <div class="container">
+            <span>Copyright &copy;
+                <a href="http://www.ginkgoleaf.club">GinkgoTeam</a>
+            </span>
+        </div>
+    </footer>
+    <!-- Script -->
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+    <script src="/static/js/clipboard.min.js"></script>
+    {% block script %}{% endblock script %}
+</body>
+</html>

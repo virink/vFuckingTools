@@ -12,5 +12,10 @@ views = Blueprint('views', __name__)
 
 
 @views.route("/", methods=['GET'])
-def index():
+def views_index():
+    return render_template('index.html')
+
+
+@views.route("/about", methods=['GET'])
+def views_about():
     return render_template('index.html')

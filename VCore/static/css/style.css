@@ -1,0 +1,11 @@
+/* Base */
+.footer {
+    position: relative;
+    margin: 5px 0;
+}
+
+/* Index */
+.index-box-content {
+    height: 150px;
+    font-size: 18px;
+}

@@ -8,6 +8,7 @@ from flask import Flask, render_template, request, redirect, jsonify, json as js
 
 from .models import db
 from .utils import init_utils
+from .auths import auths
 from .views import views
 from .tests import tests
 
@@ -23,6 +24,7 @@ def create_app(config='VCore.config.devConfig'):
         db.create_all()
         app.db = db
         init_utils(app)
+        app.register_blueprint(auths)
         app.register_blueprint(views)
         app.register_blueprint(tests)
     return app
