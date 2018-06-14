@@ -1,0 +1,14 @@
+~
+.~
+.bak
+.bak~
+.BAK
+.{re=exrex:[0-9]}$
+{re=exrex:[0-9]}$
+.swp
+.swp~
+.swo
+.swo~
+.tmp
+!
+.{re=exrex:201[0-9]}$
