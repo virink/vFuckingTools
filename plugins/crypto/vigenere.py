@@ -15,6 +15,7 @@ def vigenere(s, key, de=0):
     s = s.replace(" ", "").upper()
     key = key.replace(" ", "").upper()
     _ascii = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    _ascii = 'abcdefghijklmnopqrstuvwxyz'
     keylen = len(key)
     ctlen = len(s)
     res = ''
@@ -43,4 +44,5 @@ def decode(s, key):
     return vigenere(s, key, 1)
 
 if __name__ == '__main__':
-    print decode(encode("testtest", 'orz'), 'orz')
+    # print(decode(encode("testtest", 'orz'), 'orz'))
+    print(decode("the tragedy of caesar", 'happy'))

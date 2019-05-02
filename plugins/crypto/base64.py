@@ -13,7 +13,7 @@ func : encode, decode
 import base64
 
 
-def encode(s, bit):
+def encode(s, bit=64):
     if bit == 16:
         return base64.b16encode(s)
     elif bit == 32:
@@ -22,10 +22,14 @@ def encode(s, bit):
         return base64.b64encode(s)
 
 
-def decode(s, bit):
+def decode(s, bit=64):
     if bit == 16:
         return base64.b16decode(s)
     elif bit == 32:
         return base64.b32decode(s)
     else:
         return base64.b64decode(s)
+
+
+if __name__ == '__main__':
+    encode('aaa')

@@ -10,7 +10,7 @@ Param : @s
 func : encode, decode
 '''
 
-MORSE_TABLE = {
+T = {
     'A': '.-',     'B': '-...',   'C': '-.-.',
     'D': '-..',    'E': '.',      'F': '..-.',
     'G': '--.',    'H': '....',   'I': '..',
@@ -27,22 +27,22 @@ MORSE_TABLE = {
     ',': '--..--', '.': '.-.-.-', ':': '---...', ';': '-.-.-.',
     '?': '..--..', '=': '-...-',  "'": '.----.', '/': '-..-.',
     '!': '-.-.--', '-': '-....-', '_': '..--.-', '(': '-.--.',
-    ')': '-.--.-', '$': '...-..-', '&': '. . . .', '@': '.--.-.',
+    ')': '-.--.-', '$': '...-..-', '&': '.-.-.-.', '@': '.--.-.',
     '{': '----.--', '}': '-----.-'
 }
 
 
 def encode(s):
-    return ' '.join([str(MORSE_TABLE[i.upper()]) if i.upper() in MORSE_TABLE.keys() else '???' for i in s])
+    return ' '.join([str(T[i.upper()]) if i.upper() in T.keys() else '???' for i in s])
 
 
 def decode(s):
     msg = ''
     try:
-        msg = ''.join([dict(map(lambda t: (t[1], t[0]), MORSE_TABLE.items()))[
+        msg = ''.join([dict(map(lambda t: (t[1], t[0]), T.items()))[
                       c] for c in s.split(' ')])
     except:
-        UNCODE = dict(map(lambda t: (t[1], t[0]), MORSE_TABLE.items()))
+        UNCODE = dict(map(lambda t: (t[1], t[0]), T.items()))
         for code in s.split('/'):
             if code == '':
                 msg += ' '
@@ -50,5 +50,6 @@ def decode(s):
                 msg += UNCODE[code]
     return msg
 
+
 if __name__ == '__main__':
-    print decode('--./-.-/-.-./-/..-./----.--/-../../-../../-../../-../../-../../-./-/./.-././.../../-./--./-----.-')
+    print(decode('--./-.-/-.-./-/..-./----.--/-../../-../../-../../-../../-../../-./-/./.-././.../../-./--./-----.-'))
