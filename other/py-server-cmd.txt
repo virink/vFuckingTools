@@ -1,0 +1,5 @@
+Http
+python -m SimpleHTTPServer 80
+
+Ftp
+python -m pyftpdlib -p 21
